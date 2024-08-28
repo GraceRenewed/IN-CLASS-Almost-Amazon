@@ -1,18 +1,13 @@
 import clearDom from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
-const emptyAuthors = () => {
+const emptyFavAuthors = () => {
   const domString = '<h1>No Authors</h1>';
   renderToDOM('#store', domString);
 };
 
-const showAuthors = (array) => {
+const showFavorites = (array) => {
   clearDom();
-
-  const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">Add An Author</button>';
-  const btnString2 = '<button class="btn btn-success btn-lg mb-4" id="add-favorite-btn">Favorite Authors</button>';
-
-  renderToDOM('#add-button', btnString, btnString2);
 
   let domString = '';
   array.forEach((item) => {
@@ -32,4 +27,4 @@ const showAuthors = (array) => {
   renderToDOM('#store', domString);
 };
 
-export { showAuthors, emptyAuthors };
+export { emptyFavAuthors, showFavorites };
