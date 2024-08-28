@@ -10,9 +10,8 @@ const showAuthors = (array) => {
   clearDom();
 
   const btnString = '<button class="btn btn-success btn-lg mb-4" id="add-author-btn">Add An Author</button>';
-  const btnString2 = '<button class="btn btn-success btn-lg mb-4" id="add-favorite-btn">Favorite Authors</button>';
 
-  renderToDOM('#add-button', btnString, btnString2);
+  renderToDOM('#add-button', btnString);
 
   let domString = '';
   array.forEach((item) => {
