@@ -24,7 +24,6 @@ const showFavorites = (array) => {
       </div>
     </div>`;
   });
-  console.warn('Favorites');
   renderToDOM('#store', domString);
 };
 
