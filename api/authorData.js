@@ -15,6 +15,18 @@ const getAuthors = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const favoriteAuthor = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/authors.json?orderBy="favorite"&equalTo=true`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 // FIXME: CREATE AUTHOR
 const createAuthor = () => {};
 
@@ -47,4 +59,5 @@ export {
   deleteSingleAuthor,
   updateAuthor,
   getAuthorBooks,
+  favoriteAuthor
 };
