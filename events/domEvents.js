@@ -43,7 +43,7 @@ const domEvents = () => {
     // }
 
     // ADD CLICK EVENT FOR DELETING AN AUTHOR
-    if (e.target.id.include('delete-author-btn')) {
+    if (e.target.id.includes('delete-author-btn')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         console.warn('CLICKED DELETE AUTHOR', e.target.id);

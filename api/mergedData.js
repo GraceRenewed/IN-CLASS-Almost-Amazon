@@ -1,6 +1,6 @@
 // for merged promises
 // import { getSingleBook } from './bookData';
-// import { deleteSingleAuthor, getSingleAuthor } from './authorData';
+import { deleteSingleAuthor, getSingleAuthor } from './authorData';
 
 // // Get data for viewBook
 // const getBookDetails = (firebaseKey) => new Promise((resolve, reject) => {
@@ -13,15 +13,15 @@
 // // Create an object that has book data and an object named authorObject
 // });
 
-// const deleteAuthorBooksRelationship = (firebaseKey) => new Promise((resolve, reject) => {
-//   getAuthorBooks(firebaseKey).then((authorBooksArray) => {
-//     const deleteBookPromises = authorBooksArray.map((book) => deleteBookPromises(book.firebaseKey));
+const deleteAuthorBooksRelationship = (firebaseKey) => new Promise((resolve, reject) => {
+  getAuthorBooks(firebaseKey).then((authorBooksArray) => {
+    const deleteBookPromises = authorBooksArray.map((book) => deleteBookPromises(book.firebaseKey));
 
-//     Promise.all(deleteBookPromises).then(() => {
-//       deleteSingleAuthor(firebaseKey).then(resolve);
-//     });
-//   }).catch(reject);
-// });
+    Promise.all(deleteBookPromises).then(() => {
+      deleteSingleAuthor(firebaseKey).then(resolve);
+    });
+  }).catch(reject);
+});
 
 // export {
 //   getBookDetails,
