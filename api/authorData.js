@@ -46,7 +46,7 @@ const getSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
 // DELETE AUTHOR
 const deleteSingleAuthor = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/authors/${firebaseKey}.json`, {
-    mehtod: 'DELETE',
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },

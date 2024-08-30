@@ -11,9 +11,15 @@ const getBooks = () => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     },
   })
-    .then((response) => response.json()
-      .then((data) => resolve(Object.values(data)))
-      .catch(reject));
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
 });
 
 // DELETE BOOK
