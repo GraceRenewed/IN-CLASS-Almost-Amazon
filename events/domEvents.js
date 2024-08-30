@@ -2,9 +2,8 @@ import { getBooks, deleteBook } from '../api/bookData';
 import { getAuthors, deleteSingleAuthor } from '../api/authorData';
 import { showBooks } from '../pages/books';
 import { showAuthors } from '../pages/authors';
-
-// import { getBookDetails } from '../api/mergedData';
-// import { viewBook } from '../pages/viewBook';
+import { getBookDetails } from '../api/mergedData';
+import { viewBook } from '../pages/viewBook';
 
 const domEvents = () => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -31,10 +30,12 @@ const domEvents = () => {
       console.warn('EDIT BOOK', e.target.id);
       console.warn(e.target.id.split('--'));
     }
-    // // CLICK EVENT FOR VIEW BOOK DETAILS
+    // CLICK EVENT FOR VIEW BOOK DETAILS
     if (e.target.id.includes('view-book-btn')) {
       console.warn('VIEW BOOK', e.target.id);
-      console.warn(e.target.id.split('--'));
+      const [, firebaseKey] = e.target.id.split('--');
+
+      getBookDetails(firebaseKey).then(viewBook);
     }
 
     //   const [, firebaseKey] = e.target.id.split('--');
